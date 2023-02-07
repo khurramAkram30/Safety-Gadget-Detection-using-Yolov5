@@ -8,6 +8,9 @@ server.use(cors());
 server.use(express.json());
 
 server.use(empRoute);
+server.get("/", (req, res) => {
+  res.send("<h1>Model detection server hosted on heroku</h1>");
+});
 
 mongoose
   .connect(
