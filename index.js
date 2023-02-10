@@ -14,7 +14,7 @@ server.get("/", (req, res) => {
 
 mongoose
   .connect(
-    "mongodb://user:user123@ac-quv8oxc-shard-00-00.fdc6ocf.mongodb.net:27017,ac-quv8oxc-shard-00-01.fdc6ocf.mongodb.net:27017,ac-quv8oxc-shard-00-02.fdc6ocf.mongodb.net:27017/?ssl=true&replicaSet=atlas-c8l04u-shard-0&authSource=admin&retryWrites=true&w=majority"
+    "mongodb+srv://sapoolybro:r2DWeeL97utVcVYC@rjcheck.ptze7nb.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log(" connection established ");

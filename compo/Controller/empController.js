@@ -6,7 +6,7 @@ const addEmploye = async (req, res) => {
 
   try {
     const user = await empModel.find({ email: email });
-    if (user === []) {
+    if (user.length === 0) {
       const userCreated = await empModel.create({
         name: name,
         email: email,
