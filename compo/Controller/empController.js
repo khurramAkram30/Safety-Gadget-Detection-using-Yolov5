@@ -7,8 +7,6 @@ const addEmploye = async (req, res) => {
   try {
     const user = await empModel.find({ email: email });
     if (user === []) {
-      return res.status(200).json({ msg: "user already added", user });
-    } else {
       const userCreated = await empModel.create({
         name: name,
         email: email,
@@ -19,6 +17,8 @@ const addEmploye = async (req, res) => {
       return res
         .status(201)
         .json({ msg: "Employer added has id of : " + userCreated._id });
+    } else {
+      return res.status(200).json({ msg: "user already added", user });
     }
   } catch (e) {
     return res.status(500).json({ msg: "Internal server error" });
