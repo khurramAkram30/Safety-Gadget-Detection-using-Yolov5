@@ -4,11 +4,13 @@ const {
   addEmploye,
   addReport,
   getAllReports,
+  getAllEmploye,
 } = require("../Controller/empController");
 const empRoute = express.Router();
 
 //Get Request
 empRoute.get("/Report", getAllReports);
+empRoute.get("/allEmploye", getAllEmploye);
 
 //post Request
 empRoute.post("/addEmploye", addEmploye);

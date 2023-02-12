@@ -25,6 +25,15 @@ const addEmploye = async (req, res) => {
   }
 };
 
+const getAllEmploye = async (req, res) => {
+  try {
+    const user = await empModel.find();
+    return res.status(200).json({ employees: user });
+  } catch (e) {
+    return res.status(500).json({ msg: "Internal server error" });
+  }
+};
+
 const addReport = async (req, res) => {
   const { emp_id, notWearing } = req.body;
 
@@ -54,4 +63,4 @@ const getAllReports = async (req, res) => {
   }
 };
 
-module.exports = { addEmploye, addReport, getAllReports };
+module.exports = { addEmploye, addReport, getAllReports, getAllEmploye };
