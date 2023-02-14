@@ -51,14 +51,11 @@ const addReport = async (req, res) => {
 
 const getAllReports = async (req, res) => {
   try {
-    const res = await reportModel.find({});
-    const data = res.map(async (e) => {
-      const userInfo = await empModel.findById({ _id: e.emp_id });
-      const returnData = { ...e, ...userInfo };
-      return returnData;
-    });
-    return res.status(201).json({ msg: "Report Created", info: data });
+    const data = await reportModel.find({});
+
+    return res.status(200).json({ msg: "Report Created", info: data });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ msg: "Internal server error", info: [] });
   }
 };
